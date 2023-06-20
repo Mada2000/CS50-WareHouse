@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+    Edit Product
+{% endblock %}
+
+{% block body %}
+    {% for product in product %}
+    <div class="login-page">
+        <div class="form1">
+            <form class="login-form" action="/edit" method="post">
+                <div>
+                    <input type="text" placeholder="{{ product.name }}" name="n" autocomplete="off">
+                </div>
+                    <input name="id" type="hidden" value="{{ product.id }}">
+                <div>
+                    <input type="number" placeholder="{{ product.price }}" name="p" autocomplete="off">
+                </div>
+                <div>
+                    <input type="number" placeholder="{{ product.quantity }}" name="q" autocomplete="off" min="1" max="20">
+                </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

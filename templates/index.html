@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="hello">Welcome!</h1>
+        <div class="small-container">
+            <h2 class="title">Featured Products</h2>
+
+            <div class="row">
+                {% for product in products %}
+                <div class="col-4">
+                    <img src= "{{ product.img }}" alt="{{ product.name }}">
+                    <h4>{{ product.name }}<h4>
+                        <div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ product.price }}$</td>
+                                        <td id="tde">
+                                            <form action="/edit" method="get">
+                                                <input name="id" type="hidden" value="{{ product.id }}">
+                                                <button type="submit" class="btn btn-outline-dark">Edit</button>
+                                            </form>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Pcs: {{ product.quantity }}</td>
+                                        <td id="td">
+                                            <form action="/delete" method="post">
+                                                <input name="id" type="hidden" value="{{ product.id }}">
+                                                <button type="submit" class="btn btn-outline-dark">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+{% endblock %}

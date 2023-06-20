@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+    Add Product
+{% endblock %}
+
+{% block body %}
+    <div class="login-page">
+        <div class="form1">
+            <form class="login-form" action="/add" method="post" enctype="multipart/form-data">
+                <div>
+                    <input type="file" name="file" autocomplete="off">
+                </div>
+                <div>
+                    <input type="text" placeholder="Product name" name="n" autocomplete="off">
+                </div>
+                <div>
+                    <input type="number" placeholder="Price" name="p" autocomplete="off">
+                </div>
+                <div>
+                    <input type="number" placeholder="Quantity" name="q" autocomplete="off" min="1" max="20">
+                </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
